@@ -1,5 +1,5 @@
 var navMenuAnchorTags =document.querySelectorAll('.nav-menu a');
-
+var interval;
 
 for(var i=0;i<navMenuAnchorTags.length;i++){
 
@@ -7,30 +7,26 @@ for(var i=0;i<navMenuAnchorTags.length;i++){
             event.preventDefault();
 
             var targetSectionID = this.textContent.trim().toLowerCase();
-
-                console.log(targetSectionID);
             var targetSection =document.getElementById(targetSectionID);
+             //interval =setInterval(scrollVertically,20,targetSection);
 
-                console.log(targetSection);
-
-            
-            
-            
-               
-            var interval =setInterval(function(){
-                var targetSectionCoordinates = targetSection.getBoundingClientRect();
-
-                if(targetSectionCoordinates.top <= 0){
-                    console.log(targetSectionCoordinates.top);
-                    clearInterval(interval);
-                    return;
-                }
-                window.scrollBy(0,50);
-            },20);
+             interval =setInterval(function(){
+                 scrollVertically(targetSection);
+             },20);
         });
 }
 
+function scrollVertically(targetSection){
+  
+        var targetSectionCoordinates = targetSection.getBoundingClientRect();
 
+        if(targetSectionCoordinates.top <= 0){
+            console.log(targetSectionCoordinates.top);
+            clearInterval(interval);
+            return;
+        }
+        window.scrollBy(0,50);
+    }
 
 
 
