@@ -25,7 +25,7 @@ function scrollVertically(targetSection){
             clearInterval(interval);
             return;
         }
-        window.scrollBy(0,50);
+        window.scrollBy(0,50); 
     }
 
 
@@ -44,8 +44,6 @@ function initialiseBars() {
 }
 
 initialiseBars();
-
-
 
 function fillBars() {
 
